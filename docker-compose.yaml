@@ -1,0 +1,36 @@
+version: '3'
+services:
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: areeba_customer_management
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres-db
+    networks:
+      - my_network
+  spring-boot-mobile-validation:
+    build:
+      context: ../areeba_phone_validation
+      dockerfile: Dockerfile
+    container_name: areeba_phone_validation
+    ports:
+      - "8080:8080"
+    networks:
+      - my_network
+  postgres-db:
+    image: postgres
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network
+networks:
+  my_network:
+   driver: bridge
