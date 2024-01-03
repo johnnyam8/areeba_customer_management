@@ -55,6 +55,7 @@ A Java Spring Boot microservice that manage crud operations for the customers
             mobileservice.base.url=${MOBILE_SERVICE_URL:http://localhost:8080}
        ```
       - Since we need to validate customer mobile number,  the areeba_phone_validation microservice should be up and running.
+        
       - Kindly read and follow the instruction in the readme file provided the following link -  https://github.com/johnnyam8/areeba_phone_validation
             
    - These environment variables can be overridden by setting them in your operating system, or passing them as command-line parameters when starting the 
