@@ -40,7 +40,7 @@ A Java Spring Boot microservice that manage crud operations for the customers
             spring.datasource.password = ${DATASOURCE_PASSWORD:postgres}
            ```
       - **Flyway Configuration**:
-         - Configure the flyway parameters, the parameters that related to the database connection should match the parameters configured above. 
+        - Configure the flyway parameters, the parameters that related to the database connection should match the parameters configured above. 
            ```properties
             spring.flyway.enabled = ${FLYWAY_ENABLED:true}
             spring.flyway.locations = ${FLYWAY_LOCATION:filesystem:./flyway/sql}
@@ -49,8 +49,8 @@ A Java Spring Boot microservice that manage crud operations for the customers
             spring.flyway.user = ${DATASOURCE_USERNAME:postgres}
             spring.flyway.schemas= ${DB_SCHEMA:areeba}
            ```
-     - **Phone Validation Service Configuration**:
-      - specify the url host
+      - **Phone Validation Service Configuration**:
+        - specify the url host
        ```properties
             mobileservice.base.url=${MOBILE_SERVICE_URL:http://localhost:8080}
        ```
@@ -106,11 +106,11 @@ A Java Spring Boot microservice that manage crud operations for the customers
             spring.flyway.user = ${DATASOURCE_USERNAME:postgres}
             spring.flyway.schemas= ${DB_SCHEMA:areeba}
            ```
-     - **Phone Validation Service Configuration**:
-      -  specify the url container host
-       ```properties
+      - **Phone Validation Service Configuration**:
+         - specify the url container host
+           ```properties
             mobileservice.base.url=${MOBILE_SERVICE_URL:http://areeba_phone_validation:8080}
-       ```
+           ```
    -  Build docker compose: 
        ```
         docker-compose build
