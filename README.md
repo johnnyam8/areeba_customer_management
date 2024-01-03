@@ -119,7 +119,7 @@ A Java Spring Boot microservice that manage crud operations for the customers
      ```
         docker-compose up
      ```
-     -  Verify the application is running by checking the output logs or by running the following command:
+    -  Verify the application is running by checking the output logs or by running the following command:
      ```
         docker ps
      ```
