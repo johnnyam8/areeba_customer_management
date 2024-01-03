@@ -3,7 +3,7 @@
 A Java Spring Boot microservice that manage crud operations for the customers
  
 ## Features
- 
+
 - Create new customer
 - Update Customer
 - Delete Customer
@@ -16,7 +16,6 @@ A Java Spring Boot microservice that manage crud operations for the customers
 - Java 17 or higher - [Download Java](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 - Maven - [Learn more about Maven](https://maven.apache.org/)
 - Postgres database - https://www.postgresql.org/download/
-- areeba_Phone_validation microservice - 
  
 ### Installation
  
@@ -51,8 +50,16 @@ A Java Spring Boot microservice that manage crud operations for the customers
             spring.flyway.schemas= ${DB_SCHEMA:areeba}
            ```
      - **Phone Validation Service Configuration**:
-       - Since we need to validate customer mobile number,      
-   - These environment variables can be overridden by setting them in your operating system, or passing them as command-line parameters when starting the application.
+      - You can specify the url host
+       ```properties
+            mobileservice.base.url=${MOBILE_SERVICE_URL:http://localhost:8080}
+       ```
+      - Since we need to validate customer mobile number,  the areeba_phone_validation microservice should be up and running.
+      - Kindly read and follow the instruction in the readme file provided the following link -  https://github.com/johnnyam8/areeba_phone_validation
+            
+   - These environment variables can be overridden by setting them in your operating system, or passing them as command-line parameters when starting the 
+      application.
+     
 3. **Build the Application**:
     - Run the following command to build the application:
       ```
@@ -65,14 +72,43 @@ A Java Spring Boot microservice that manage crud operations for the customers
       ```
     - The microservice will run on http://localhost:8081.
     - Verify the application is running by checking the output logs.
-
+      
 5. **Run the Application Using Docker** :
     -  Download docker and follow the details installation  - https://docs.docker.com/get-docker/
       
     - Navigate to the project directory: 
       ```
-       cd areeba_phone_validation
+       cd areeba_customer_management
       ```
+    - Clone areeba_phone_validation - https://github.com/johnnyam8/areeba_phone_validation.git and put it in the same folder.
+        
+    - Application Configuration:
+     - When running the application using docker, the communication between the two microservices and the database is done
+        between the docker containers, as result the connection url and the Phone validation service url should be the changed.
+        
+    - Modify the `application.properties` file located in the `src/main/resources` directory of your project to configure parameters.
+      - **Database Configuration**:
+         - Configure the database connection details in order to connect to the containner database:
+           ```properties
+            spring.datasource.url = ${DATASOURCE_URL:jdbc:postgresql://postgres-db:5432/postgres}
+            spring.datasource.username = ${DATASOURCE_USERNAME:postgres}
+            spring.datasource.password = ${DATASOURCE_PASSWORD:postgres}
+           ```
+      - **Flyway Configuration**:
+         - Configure the flyway parameters, the parameters that related to the database connection should match the params configured above. 
+           ```properties
+            spring.flyway.enabled = ${FLYWAY_ENABLED:true}
+            spring.flyway.locations = ${FLYWAY_LOCATION:filesystem:./flyway/sql}
+            spring.flyway.password = ${DATASOURCE_PASSWORD:postgres}
+            spring.flyway.url = ${DATASOURCE_URL:jdbc:postgresql://postgres-db:5432/postgres}
+            spring.flyway.user = ${DATASOURCE_USERNAME:postgres}
+            spring.flyway.schemas= ${DB_SCHEMA:areeba}
+           ```
+     - **Phone Validation Service Configuration**:
+      - You can specify the url host
+       ```properties
+            mobileservice.base.url=${MOBILE_SERVICE_URL:http://areeba_phone_validation:8080}
+       ```
    -  Build the docker compose: 
        ```
         docker-compose build
@@ -88,7 +124,7 @@ A Java Spring Boot microservice that manage crud operations for the customers
      
 ### Usage
  
-Access the Swagger API documentation at http://localhost:8080/swagger-ui/index.html#/ for details on API usage.
+Access the Swagger API documentation at http://localhost:8081/swagger-ui/index.html#/ for details on API usage.
  
 ## Contribution
  
