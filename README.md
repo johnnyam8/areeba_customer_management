@@ -56,7 +56,8 @@ A Java Spring Boot microservice that manage crud operations that are related to 
        ```
       - Since we need to validate customer mobile number,  the areeba_phone_validation microservice should be up and running.
         
-      - Kindly read and follow the instruction in the readme file provided in the following link -  https://github.com/johnnyam8/areeba_phone_validation
+      - Kindly read and follow the instruction in the readme file provided in the following link 
+         https://github.com/johnnyam8/areeba_phone_validation/blob/main/README.md
             
    - These environment variables can be overridden by setting them in your operating system, or passing them as command-line parameters when starting the 
       application.
