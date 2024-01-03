@@ -1,6 +1,6 @@
 # Areeba Phone Customer Management Microservice
  
-A Java Spring Boot microservice that manage crud operations for the customers
+A Java Spring Boot microservice that manage crud operations that are related to customers.
  
 ## Features
 
