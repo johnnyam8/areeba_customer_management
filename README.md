@@ -85,19 +85,19 @@ A Java Spring Boot microservice that manage crud operations for the customers
     - Clone areeba_phone_validation - https://github.com/johnnyam8/areeba_phone_validation.git and put it in the same folder.
         
     - Application Configuration:
-     - When running the application using docker, the communication between the microservices and the database is done
+      - When running the application using docker, the communication between the microservices and the database is done
         between the docker containers, as result the connection url and the Phone validation service url should be the changed.
         
-    - Modify the `application.properties` file located in the `src/main/resources` directory of your project to configure parameters.
-      - **Database Configuration**:
+      - Modify the `application.properties` file located in the `src/main/resources` directory of your project to configure parameters.
+        - **Database Configuration**:
          - Configure the database connection details in order to connect to the containner database:
            ```properties
             spring.datasource.url = ${DATASOURCE_URL:jdbc:postgresql://postgres-db:5432/postgres}
             spring.datasource.username = ${DATASOURCE_USERNAME:postgres}
             spring.datasource.password = ${DATASOURCE_PASSWORD:postgres}
            ```
-      - **Flyway Configuration**:
-         - Configure the flyway parameters, the parameters that related to the database connection should match the params configured above. 
+        - **Flyway Configuration**:
+           - Configure the flyway parameters, the parameters that related to the database connection should match the params configured above. 
            ```properties
             spring.flyway.enabled = ${FLYWAY_ENABLED:true}
             spring.flyway.locations = ${FLYWAY_LOCATION:filesystem:./flyway/sql}
@@ -106,12 +106,12 @@ A Java Spring Boot microservice that manage crud operations for the customers
             spring.flyway.user = ${DATASOURCE_USERNAME:postgres}
             spring.flyway.schemas= ${DB_SCHEMA:areeba}
            ```
-      - **Phone Validation Service Configuration**:
+        - **Phone Validation Service Configuration**:
          - specify the url container host
            ```properties
             mobileservice.base.url=${MOBILE_SERVICE_URL:http://areeba_phone_validation:8080}
            ```
-   -  Build docker compose: 
+    -  Build docker compose: 
        ```
         docker-compose build
        ```
