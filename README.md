@@ -114,16 +114,16 @@ A Java Spring Boot microservice that manage crud operations that are related to 
            ```
     -  Build docker compose: 
        ```
-        docker-compose build
+         docker-compose build
        ```
     -  Run docker compose:
-     ```
-        docker-compose up
-     ```
+       ```
+         docker-compose up
+       ```
     -  Verify the application is running by checking the output logs or by running the following command:
-     ```
-        docker ps
-     ```
+       ```
+         docker ps
+       ```
      
 ### Usage
  
